@@ -12,6 +12,7 @@
 <form action="dataProcessing.php" method="post" enctype="multipart/form-data">
     <p>Название книги: <input type="text" name="nameBook"></p>
     <p>Обложка книги: <input type="file" name="cover"></p>
+    <p>Файл книги: <input type="file" name="bookFile"></p>
     <p>Автор: <input type="text" name="author"></p>
     <p>Год издания: <input type="number" name="year"></p>
     <p>Описание книги: </p>

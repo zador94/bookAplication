@@ -22,6 +22,7 @@
         <th>Год издания</th>
         <th>Описание</th>
         <th>Фото</th>
+        <th>Ссылка на скачивание</th>
     </tr>
     <?php
     try {
@@ -39,6 +40,9 @@
             echo "<td width='40%' valign='middle'>" . $row['description'] . "</td>";
             $path = $row['path_book'];
             echo "<td align='middle'><img src='$path' 'height='50' width='50'></td>";
+            $pathFile = $row['book_link'];
+            echo "<td align='middle'><a href='$pathFile' download>Ссылка на скачивание</a></td>";
+
             echo "<td ><a href='detailed_description.php?id=" . $row["id"] . "'>Подробное описание</a></td>";
             echo "<td ><a href='updateBook.php?id=" . $row["id"] . "'>Изменить информацию о книге</a></td>";
             echo "<td>

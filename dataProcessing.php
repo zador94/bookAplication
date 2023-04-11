@@ -8,7 +8,17 @@ if (isset($_POST['submit']) && !empty($_REQUEST['nameBook']) && !empty($_REQUEST
         move_uploaded_file($_FILES['cover']['tmp_name'], $path);
         echo 'Фото успешно загружено <br>';
     }
-}
+
+    if ($_FILES && $_FILES['bookFile']['error'] == UPLOAD_ERR_OK) {
+        $extension = explode('.', $_FILES['bookFile']['name']);
+        $_FILES['bookFile']['name'] = $_REQUEST['nameBook'] . '.' . $extension[1];
+        $path = 'bookFile/' . $_FILES['bookFile']['name'];
+        move_uploaded_file($_FILES['bookFile']['tmp_name'], $path);
+        echo 'Книга успешно загружена <br>';
+    }
+
+
+
 
     try {
         $connection = new PDO("mysql:host=localhost;dbname=bookaplicationdatabase", 'root', 'root');
@@ -27,7 +37,7 @@ if (isset($_POST['submit']) && !empty($_REQUEST['nameBook']) && !empty($_REQUEST
     } catch (PDOException $error) {
         $error->getMessage();
     }
-
+}
 
 
 ?>
